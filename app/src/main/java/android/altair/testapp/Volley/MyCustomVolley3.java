@@ -25,7 +25,7 @@ public class MyCustomVolley3 {
     private String ApiLink;
     private Map<String, String> params = new HashMap<>();
     private Map<String, String> headerparam = new HashMap<>();
-    private Var.VolleyInterface VolleyInterface;
+
     private int POST_TYPE;
 
     //private static int reqCnt = 0;
@@ -51,37 +51,32 @@ public class MyCustomVolley3 {
 
     }
 
-    public void makeVolleyRequests(final int no) {
+    public void makeVolleyRequests(final int requestcode, final int no) {
 
-/*
-        final ProgressDialog pDialog = new ProgressDialog(context);
-        pDialog.setMessage("Loading...");
-        pDialog.show();*/
+
         StringRequest putRequest = new StringRequest(POST_TYPE/*Request.Method.PUT*/, ApiLink,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Log.e("Comment", "Shot:" + response);
 
+                        if (requestcode== Var.COMMENT_REQUEST) {
+                            rw.setCommentData(response);
+                            Var.COMMENT_COUNT++;
 
-                        rw.setCommentData(response);
-                        Var.COMMENT_COUNT++;
-                        if (Var.COMMENT_COUNT >= no) {
-                            Log.e("Comment DONE", "Congo");
+                            if (Var.COMMENT_COUNT >= no)
+                                rw.replyShot(context, rw.getReplydataIDs());
 
-                            rw.replyShot(context, rw.getReplydataIDs());
 
-                            /*Intent i = new Intent("commentdone");
-                            context.sendBroadcast(i);*/
                         }
 
+                        if (requestcode== Var.REPLY_REQUEST) {
 
-                       /* try {
-                            VolleyInterface.processFinish(response);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }*/
-                        //pDialog.hide();
+                            rw.setReplyData(response);
+
+
+                        }
+
 
                     }
                 },
@@ -95,9 +90,7 @@ public class MyCustomVolley3 {
         ) {
             @Override
             protected Map<String, String> getParams() {
-                /*Map<String, String> params = new HashMap<String, String>();
-                params.put("op", "list");
-                params.put("restid", "indblr2016getseatedr9999");*/
+
                 return params;
             }
 

@@ -2,7 +2,6 @@ package android.altair.testapp.Data;
 
 import android.altair.testapp.Volley.MyCustomVolley;
 import android.altair.testapp.Volley.MyCustomVolley3;
-import android.altair.testapp.Volley.MyCustomVolley4;
 import android.altair.testapp.News.Var;
 import android.content.Context;
 import android.util.Log;
@@ -109,7 +108,7 @@ public class Raw {
             Log.e("Ethe", "Ulti mariyanu");
             String url = " https://hacker-news.firebaseio.com/v0/item/" + Al.get(i) + ".json?print=pretty";
             volley = new MyCustomVolley(con, url, HeadersParams, null, 0);
-            volley.makeVolleyRequests("GetNewsItems");
+            volley.makeVolleyRequests(Var.NEWSITEM_REQUEST);
 
         }
     }
@@ -128,7 +127,7 @@ public class Raw {
                 String url = " https://hacker-news.firebaseio.com/v0/item/" + al.get(i).toString() + ".json?print=pretty";
 
                 volley = new MyCustomVolley3(con, url, HeadersParams, null, 0);
-                volley.makeVolleyRequests(al.length());
+                volley.makeVolleyRequests(Var.COMMENT_REQUEST,al.length());
 
             }
         } catch (JSONException e) {
@@ -140,7 +139,7 @@ public class Raw {
     public void replyShot(Context con, ArrayList al) {
 
         Var.REPLY_COUNT = 0;
-        MyCustomVolley4 volley;
+        MyCustomVolley3 volley;
         HeadersParams.put("Content-Type", "application/json");
         //ArrayList Al = getTop10Array();
         Log.e("REPLY", "XXXSHOTSXXXX");
@@ -151,8 +150,8 @@ public class Raw {
 
             String url = " https://hacker-news.firebaseio.com/v0/item/" + al.get(i).toString() + ".json?print=pretty";
 
-            volley = new MyCustomVolley4(con, url, HeadersParams, null, 0);
-            volley.makeVolleyRequests(al.size());
+            volley = new MyCustomVolley3(con, url, HeadersParams, null, 0);
+            volley.makeVolleyRequests(Var.REPLY_REQUEST,al.size());
 
         }
 

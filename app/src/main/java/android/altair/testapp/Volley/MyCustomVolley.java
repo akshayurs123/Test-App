@@ -55,7 +55,7 @@ public class MyCustomVolley {
 
     }
 
-    public void makeVolleyRequests(final String OpType) {
+    public void makeVolleyRequests(final int OpType) {
 
 /*
         final ProgressDialog pDialog = new ProgressDialog(context);
@@ -66,7 +66,7 @@ public class MyCustomVolley {
                     @Override
                     public void onResponse(String response) {
 
-                        if (OpType.equals("GetNewsId")) {
+                        if (OpType == Var.NEWSID_REQUEST) {
                             try {
                                 VolleyInterface.processFinish(response);
                             } catch (JSONException e) {
@@ -74,7 +74,7 @@ public class MyCustomVolley {
                             }
                         }
 
-                        if (OpType.equals("GetNewsItems")) {
+                        if (OpType == Var.NEWSITEM_REQUEST) {
                             rw.setObservationData(response);
                             reqCnt++;
                             if(reqCnt >=Var.NUMBER_OF_NEWS_LOADS){

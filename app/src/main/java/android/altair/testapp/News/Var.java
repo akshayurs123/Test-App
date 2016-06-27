@@ -15,9 +15,14 @@ public class Var {
 
     public static int NUMBER_OF_NEWS_LOADS = 100;
 
-    public interface VolleyJsonInterface {
-        void processJsonFinish(String output) throws JSONException;
-    }
+
+    public static int NEWSID_REQUEST = 1;
+    public static int NEWSITEM_REQUEST = 2;
+    public static int COMMENT_REQUEST = 3;
+    public static int REPLY_REQUEST = 4;
+
+
+
 
     public interface VolleyInterface {
 

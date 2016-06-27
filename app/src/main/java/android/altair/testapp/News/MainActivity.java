@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         Map<String, String> HeadersParams = new HashMap<>();
         HeadersParams.put("Content-Type", "application/json");
         volley = new MyCustomVolley(this, "https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty", HeadersParams, null, 0);
-        volley.makeVolleyRequests("GetNewsId");
+        volley.makeVolleyRequests( Var.NEWSID_REQUEST);
 
 
     }
