@@ -58,7 +58,7 @@ public class MyCustomVolley3 {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.e("Comment", "Shot:" + response);
+
 
                         if (requestcode== Var.COMMENT_REQUEST) {
                             rw.setCommentData(response);

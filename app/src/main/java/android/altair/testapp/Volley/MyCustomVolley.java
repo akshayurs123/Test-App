@@ -78,7 +78,7 @@ public class MyCustomVolley {
                             rw.setObservationData(response);
                             reqCnt++;
                             if(reqCnt >=Var.NUMBER_OF_NEWS_LOADS){
-                                Log.e("ALL DONE","Congo");
+
                                 Intent i = new Intent("newsdone");
                                 context.sendBroadcast(i);
                             }

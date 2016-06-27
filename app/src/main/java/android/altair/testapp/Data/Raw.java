@@ -48,7 +48,7 @@ public class Raw {
             }
         }
 
-        Log.e("+++++++CCCC++++", itemIds.toString());
+
     }
 
 
@@ -105,7 +105,7 @@ public class Raw {
         //for (int i = 0; i < /*Al.size()*/30; i++) {
         for (int i = 0; i < Var.NUMBER_OF_NEWS_LOADS; i++) {
 
-            Log.e("Ethe", "Ulti mariyanu");
+
             String url = " https://hacker-news.firebaseio.com/v0/item/" + Al.get(i) + ".json?print=pretty";
             volley = new MyCustomVolley(con, url, HeadersParams, null, 0);
             volley.makeVolleyRequests(Var.NEWSITEM_REQUEST);
@@ -121,7 +121,7 @@ public class Raw {
             //ArrayList Al = getTop10Array();
             for (int i = 0; i < al.length(); i++) {
 
-                Log.e("Kake", "Ethe kids mariyanu");
+
                 if (i >= 10) break;
 
                 String url = " https://hacker-news.firebaseio.com/v0/item/" + al.get(i).toString() + ".json?print=pretty";
@@ -141,8 +141,7 @@ public class Raw {
         Var.REPLY_COUNT = 0;
         MyCustomVolley3 volley;
         HeadersParams.put("Content-Type", "application/json");
-        //ArrayList Al = getTop10Array();
-        Log.e("REPLY", "XXXSHOTSXXXX");
+
         for (int i = 0; i < al.size(); i++) {
 
 
