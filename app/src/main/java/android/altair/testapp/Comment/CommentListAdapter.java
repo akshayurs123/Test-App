@@ -62,10 +62,10 @@ public class CommentListAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
-        if (inflater == null)
+       // if (inflater == null)
             inflater = (LayoutInflater) activity
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        if (convertView == null)
+       // if (convertView == null)
             convertView = inflater.inflate(R.layout.comment_listview_element, null);
 
         tv_user = (TextView) convertView.findViewById(R.id.tv_user);
@@ -79,7 +79,7 @@ public class CommentListAdapter extends BaseAdapter {
         int id = movieList.get(position);
 
         obj = CommentData.get(id);
-        Log.e("Map: ", obj.toString());
+        //Log.e("Map: ", obj.toString());
 
         int repId = rw.getFirstReply(obj);
         JSONObject repObj = ReplyData.get(repId);
@@ -92,7 +92,11 @@ public class CommentListAdapter extends BaseAdapter {
             if (repObj != null) {
 
                 reply = repObj.getString("text");
+                Log.e("REPLIES:",reply);
                 tv_reply.setText(Html.fromHtml(Html.fromHtml(reply).toString()));
+
+            }else{
+                tv_reply.setText("No Reply");
 
             }
             /*author = obj.getString("by");

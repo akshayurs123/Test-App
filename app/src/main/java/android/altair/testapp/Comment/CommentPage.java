@@ -42,38 +42,7 @@ public class CommentPage extends AppCompatActivity {
         rw.commentShot(con, kidsArr);           /*** Fetches comment Data for the current News ***/
 
 
-/*
-        btn_cmt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-
-                Log.e("FIND DETECTIVE", rw.getReplydata().toString());
-
-
-                adapter = new CommentListAdapter(CommentPage.this, rw.getCommentIdArray());
-                listView.setAdapter(adapter);
-
-            }
-        });*/
-
-
-       /* final IntentFilter theFilter = new IntentFilter();
-        theFilter.addAction("alldone");
-        BroadcastReceiver receiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-
-                //rw.replyShot(con, rw.getReplydataIDs());
-
-                adapter = new CommentListAdapter(CommentPage.this, rw.getCommentIdArray());
-                listView.setAdapter(adapter);
-
-
-            }
-        };
-
-        this.registerReceiver(receiver, theFilter);*/
 
 
     }
